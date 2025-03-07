@@ -14,7 +14,7 @@ const Navbar = () => {
       m={4}
       p={4}
     >
-      <Heading>🥘Recipe Receptor</Heading>
+      <Heading>🥘Recipe </Heading>
       <HStack gap={6} fontSize={"xl"}>
         <Link to="/">🏡Home</Link>
         <Link to="/about">About</Link>
