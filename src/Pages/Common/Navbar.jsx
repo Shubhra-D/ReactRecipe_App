@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, HStack } from "@chakra-ui/react";
+import { Button, Flex, Heading, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 import { PiChefHatDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
@@ -16,10 +16,10 @@ const Navbar = () => {
       p={4}
     >
       <Flex>
-      <PiChefHatDuotone/>
-      <Heading>Recipe Receptor</Heading>
+      <PiChefHatDuotone fontSize={'2xl'}/>
+      <Text fontWeight={'bold'} fontSize={'3xl'}>Recipe Receptor</Text>
       </Flex>
-      <HStack gap={6} fontSize={"xl"}>
+      <HStack gap={6} fontSize={"large"}>
         <Link to="/">🏡Home</Link>
         <Link to="/about">About</Link>
       </HStack>

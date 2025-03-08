@@ -26,6 +26,7 @@ const About = () => {
           "Cooking is an art, and every meal is a masterpiece!"
         </Text>
       </VStack>
+      
     </Box>
   );
 };

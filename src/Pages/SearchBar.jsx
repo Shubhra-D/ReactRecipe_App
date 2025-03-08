@@ -1,6 +1,7 @@
-import { Container, Input, List, ListItem } from "@chakra-ui/react";
+import {  Container, Input } from "@chakra-ui/react";
 import { RecipeContext } from "../Context/RecipeProvider";
 import React, { useContext, useState } from "react";
+
 
 const SearchBar = () => {
   const { recipes, setFilteredRecipes } = useContext(RecipeContext);
@@ -21,15 +22,16 @@ const SearchBar = () => {
   };
   
   return (
-    <Container>
+    <Container> 
       <Input
+      
         placeholder="Search Meal..."
         value={searchTerm}
         onChange={handleSearch}
         display={"block"}
-        width={"60%"}
+        width={'70%'}
         borderRadius={"2xl"}
-        marginLeft={3}
+        marginLeft={8}
       />
       
       
