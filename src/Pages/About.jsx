@@ -6,7 +6,7 @@ const About = () => {
   return (
     <Box maxW="800px" mx="auto" p={6} textAlign="center">
       <Image 
-        src='/about.jpeg'
+        src={`${process.env.PUBLIC_URL}/about.jpeg`}
         alt="Cooking Image" 
         borderRadius="2xl" 
         mb={4}
