@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Heading, Text, Image, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, VStack, Flex } from "@chakra-ui/react";
+import { FaHeart } from "react-icons/fa6";
 
 const About = () => {
   return (
@@ -7,9 +8,10 @@ const About = () => {
       <Image 
         src='/about.jpeg'
         alt="Cooking Image" 
-        borderRadius="md" 
+        borderRadius="2xl" 
         mb={4}
-        width={'500px'} 
+        p={'10px'}
+        width={'90%'} 
         height={'400px'}
       />
       <VStack spacing={4}>
@@ -26,7 +28,13 @@ const About = () => {
           "Cooking is an art, and every meal is a masterpiece!"
         </Text>
       </VStack>
-      
+      <VStack textAlign={'center'} m={6} p={2} color={'grey'}>
+        <Flex>
+          <Text >Made with love </Text>
+            <FaHeart color="red"/> 
+            <Text>and care by EmpowerHer Student Shubhra Dwivedi</Text></Flex>
+        <Text>&copy; march 2025</Text>
+      </VStack>
     </Box>
   );
 };

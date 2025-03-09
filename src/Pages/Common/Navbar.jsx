@@ -1,9 +1,17 @@
+import { useAuth } from "../../Context/AuthProvider"
 import { Button, Flex, Heading, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 import { PiChefHatDuotone } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const {user,logout} = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = ()=>{
+    logout();
+    navigate('/')
+  }
   return (
     <Flex
       fontWeight={"bolder"}
@@ -24,9 +32,16 @@ const Navbar = () => {
         <Link to="/about">About</Link>
       </HStack>
       <Heading>
-        <Link to="login">
-          <Button bg={"blue.400"}> 👤Login</Button>
-        </Link>
+        {user ? (
+          <>
+           <Text as={'span'} marginRight={3}>👋{user.name}!</Text>
+           <Button bg={'blue.400'} onClick={handleLogout}>Logout</Button>
+          </>
+        ):(
+          <Link to={'/login'}>
+            <Button bg={'blue.400'}>👤Login</Button>
+          </Link>
+        )}
       </Heading>
     </Flex>
   );

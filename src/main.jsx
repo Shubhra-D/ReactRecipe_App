@@ -5,8 +5,10 @@ import App from "./App.jsx";
 import { Provider as ChakraProvider } from "./components/ui/provider";
 import { BrowserRouter } from "react-router-dom";
 import RecipeProvider from "./Context/RecipeProvider";
+import AuthProvider from "./Context/AuthProvider";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <AuthProvider>
     <RecipeProvider>
       <BrowserRouter>
         <ChakraProvider>
@@ -14,5 +16,6 @@ createRoot(document.getElementById("root")).render(
         </ChakraProvider>
       </BrowserRouter>
     </RecipeProvider>
+    </AuthProvider>
   </StrictMode>
 );
