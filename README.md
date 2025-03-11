@@ -21,5 +21,5 @@
 
 ## Filter Box
 * This is not a separate page but a filter box where user can view some dishes of choice by adding some filters.
-![filterBox](public\screenshots\filterbox.png)
+![filterBox](public/screenshots/filterbox.png)
 

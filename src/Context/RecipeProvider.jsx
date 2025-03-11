@@ -18,8 +18,17 @@ const RecipeProvider = ({children}) => {
     }
       fetchRecipes()
   },[]);
+
+  //function to Edit the Recipes
+  const updateRecipes = (updateRecipe)=>{
+    setRecipes((prev)=>{
+      prev.map((recipe)=>
+         recipe.idMeal === updateRecipe.idMeal ? updateRecipe : recipe
+      )
+    })
+  }
     return (
-    <RecipeContext.Provider value={{recipes,filteredRecipes,setFilteredRecipes}}>
+    <RecipeContext.Provider value={{recipes,filteredRecipes,setFilteredRecipes,updateRecipes}}>
           {children}
     </RecipeContext.Provider>
   )

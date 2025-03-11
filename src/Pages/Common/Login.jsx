@@ -25,6 +25,7 @@ const handleLogin = ()=>{
   setError(null)
   localStorage.setItem("user",JSON.stringify({name,email}))
   console.log(name,email);
+  alert(`${name}! logged in Successfully `)
   navigate("/")
 }
 

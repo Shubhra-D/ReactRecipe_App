@@ -1,4 +1,3 @@
-import { VStack } from '@chakra-ui/react'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const AuthContext = createContext();
@@ -18,6 +17,7 @@ const AuthProvider = ({children}) => {
  const login = (userData) => {
   localStorage.setItem("user", JSON.stringify(userData));
   setUser(userData);
+ 
 };
 
 // Logout function
