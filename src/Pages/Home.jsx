@@ -92,7 +92,7 @@ const Home = () => {
   // click edit button
   const handleEdit = (recipe) => {
     setEditingRecipe(recipe);
-    alert ("Editing the recipe")
+    alert("Editing the recipe");
   };
 
   //saving the changes/editing
@@ -114,9 +114,8 @@ const Home = () => {
   const handleDelete = (id) => {
     setFilteredRecipes(
       filteredRecipes.filter((recipe) => recipe.idMeal !== id)
-
     );
-    alert(`Deleted`)
+    alert(`Deleted`);
   };
 
   return (
@@ -142,13 +141,19 @@ const Home = () => {
           left={"50%"}
           transform={"translate(-50%,-50%)"}
           bg={"blue.50"}
-          p={6}
+          p={{ base: 4, md: 6 }}
           boxShadow={"lg"}
           borderRadius={"12px"}
           zIndex={10}
-          width={"600px"}
+          width={{ base: "90%", sm: "80%", md: "600px" }}
+          maxHeight={{ base: "80vh" }}
+          overflow={{ base: "auto" }}
         >
-          <Heading textAlign={"center"} color={"blue.400"}>
+          <Heading
+            textAlign={"center"}
+            color={"blue.400"}
+            fontSize={{ base: "lg", md: "xl" }}
+          >
             Filter Selection
           </Heading>
           {/* Categories section */}
@@ -157,12 +162,17 @@ const Home = () => {
           </Text>
           <HStack wrap={"wrap"} marginLeft={4} p={3}>
             {categories.map((category) => (
-              <VStack color={"grey"} fontSize={"small"} key={category.name}>
+              <VStack
+                color={"grey"}
+                fontSize={{ base: "xs", md: "sm" }}
+                key={category.name}
+              >
                 <Button
                   onClick={() => setSelectedCategory(category.name)}
                   bg={selectedCategory === category.name ? "grey" : "blue.50"}
                   m={1}
                   borderColor={"blue.200"}
+                  _hover={{ bg: "blue.100" }}
                 >
                   {category.emoji}
                 </Button>
@@ -179,9 +189,17 @@ const Home = () => {
           >
             Ingredients
           </Text>
-          <HStack wrap={"wrap"} marginLeft={4}>
+          <HStack
+            wrap={"wrap"}
+            marginLeft={4}
+            justifyContent={{ base: "center", md: "flex-start" }}
+          >
             {keyIngredient.map((ingredient) => (
-              <VStack color={"grey"} fontSize={"small"}  key={ingredient.name}>
+              <VStack
+                color={"grey"}
+                fontSize={{ base: "xs", md: "sm" }}
+                key={ingredient.name}
+              >
                 <Button
                   onClick={() => setSelectedIngredient(ingredient.name)}
                   bg={
@@ -189,6 +207,7 @@ const Home = () => {
                   }
                   m={1}
                   borderColor={"blue.200"}
+                  _hover={{ bg: "blue.100" }}
                 >
                   {ingredient.emoji}
                 </Button>
@@ -197,28 +216,39 @@ const Home = () => {
             ))}
           </HStack>
           {/* Close and apply buttons */}
-          <Button
-            m={4}
-            onClick={applyFilter}
-            color={"blue.500"}
-            bg={"blue.50"}
-            borderColor={"blue.200"}
-          >
-            Apply Filter
-          </Button>
-          <Button
-            m={4}
-            onClick={onClose}
-            bg={"blue.50"}
-            borderColor={"blue.200"}
-            color={"blue.500"}
-          >
-            Close
-          </Button>
+          <Flex justifyContent={"center"} wrap={"wrap"} gap={4} m={4}>
+            <Button
+              onClick={applyFilter}
+              color={"blue.500"}
+              bg={"blue.50"}
+              borderColor={"blue.200"}
+              _hover={{ bg: "blue.100" }}
+            >
+              Apply Filter
+            </Button>
+            <Button
+              onClick={onClose}
+              bg={"blue.50"}
+              borderColor={"blue.200"}
+              color={"blue.500"}
+              _hover={{ bg: "blue.100" }}
+            >
+              Close
+            </Button>
+          </Flex>
         </Box>
       )}
       {/* Display Recipes */}
-      <Grid templateColumns={"repeat(4,1fr)"} gap={8} m={6} p={6}>
+      <Grid
+        templateColumns={{
+          base: "repeat(1,1fr)",
+          md: "repeat(2,1fr)",
+          lg: "repeat(4,1fr)",
+        }}
+        gap={8}
+        m={6}
+        p={6}
+      >
         {filteredRecipes.length === 0 && (
           <HStack width={"full"}>
             <SkeletonCircle size={"10"} />

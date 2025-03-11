@@ -42,28 +42,36 @@ const Recipe = () => {
     <Container
       boxShadow={"rgba(0,0,0.12) 0px 5px 10px"}
       border={"1px solid skyblue"}
-      width={"70%"}
+      width={{ base: "100%", md: "80%", lg: "70%" }}
       borderRadius={"2xl"}
+      p={6}
+      my={5}
+      m={4}
     >
       <Box m={5} p={6}>
-        <Flex justifyContent={"space-evenly"} alignItems={"flex-start"}>
+        <Flex
+          justifyContent={"space-evenly"}
+          alignItems={"flex-start"}
+          direction={{ base: "column", md: "row" }}
+          gap={5}
+        >
           <Image
             src={meal.strMealThumb}
             alt="photo"
-            w={"400px"}
-            h={"400px"}
+            w={{ base: "100%", md: "400px" }}
+            h={{ base: "auto", md: "400px" }}
             borderRadius={"2xl"}
             border={"none"}
           />
           <Flex flexDirection={"column"} p={5} justifyContent={"left"}>
-            <Text color={"blue.500"} marginTop={6} fontWeight={"bold"}>
+            <Text color={"blue.500"} marginTop={6} fontWeight={"bold"} fontSize={{base:"larger",md:"xl"}}>
               {meal.strMeal}
             </Text>
             <Text color={"blue.500"}>{meal.strArea}</Text>
             <Heading color={"blue.500"} m={6}>
               Watch the video here....
             </Heading>
-            <AspectRatio border={"none"} borderRadius={"lg"} p={6} m={2}>
+            <AspectRatio ratio={16/9} border={"none"} borderRadius={"lg"} p={6} m={2}>
               <iframe
                 title="meal-video"
                 src={meal.strYoutube.replace("watch?v=", "embed/")}
@@ -110,7 +118,11 @@ const Recipe = () => {
         </Heading>
         <Text color={"blue.500"}>{meal.strInstructions}</Text>
       </Box>
-      <Link to={'/'}><Button m={5} bg="blue.100" color="blue.500">All Recipes</Button></Link>
+      <Link to={"/"}>
+        <Button m={5} bg="blue.100" color="blue.500">
+          All Recipes
+        </Button>
+      </Link>
     </Container>
   );
 };
