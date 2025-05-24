@@ -8,6 +8,7 @@ import {
   Heading,
   HStack,
   Image,
+  RatingGroup,
   Skeleton,
   SkeletonCircle,
   SkeletonText,
@@ -24,6 +25,7 @@ const Home = () => {
   const { filteredRecipes, setFilteredRecipes } = useContext(RecipeContext);
   const [editingRecipe, setEditingRecipe] = useState(null);
   const [isOpen, setisOpen] = useState(false);
+  const [rating,setRating] = useState(1);
   const onOpen = () => setisOpen(true);
   const onClose = () => setisOpen(false);
   console.log(" Filter Dialog Opened", isOpen);
@@ -269,7 +271,9 @@ const Home = () => {
                 <Image
                   src={meal.strMealThumb}
                   alt="meal-pic"
-                  borderRadius={"8px"}
+                  border={"1px solid blue.50"}
+                  borderRadius={"2xl"}
+                  padding={2}
                 />
                 <Text paddingLeft={6} paddingTop={3} fontWeight={"bold"}>
                   {meal.strMeal}
@@ -278,6 +282,20 @@ const Home = () => {
                   {meal.strArea}
                 </Text>
               </Link>
+              <Flex padding={3} justifyContent={"space-between"}>
+                <RatingGroup.Root
+                allowHalf
+                count={5}
+                value={rating}
+                onValueChange={(e) => setRating(e.value)}
+                colorPalette={"yellow"}
+              >
+                <RatingGroup.HiddenInput />
+                <RatingGroup.Control />
+              </RatingGroup.Root>
+              <Text>5k reviews</Text>
+              </Flex>
+
               {/* Editing button */}
               <Flex justifyContent={"center"} alignItems={"center"} gap={3}>
                 <Button

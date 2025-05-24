@@ -6,6 +6,8 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import Recipe from './Pages/Recipe'
 import Login from './Pages/Common/Login'
+import Footer from './Pages/Common/Footer'
+import Feedback from './Pages/FeedBack'
 
 function App() {
  
@@ -18,7 +20,9 @@ function App() {
        <Route path='/about' element={<About/>}/>
        <Route path='/meal/:id' element={<Recipe/>}/>
        <Route path='/login' element={<Login/>}/>
-      </Routes> 
+       <Route path='/feedback' element={<Feedback/>}/>
+      </Routes>
+      <Footer/> 
     </>
   )
 }
