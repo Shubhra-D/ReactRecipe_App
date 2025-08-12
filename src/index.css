@@ -1,5 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap");
 
 body {
-  font-family: 'Dancing Script', cursive;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Dancing Script", cursive;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      /* top dark layer */ rgba(0, 0, 0, 0.6) /* bottom dark layer */
+    ),
+    url("./assets/glass-8320734_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Parallax-like effect */
+
+  /* Add smooth fade-in on load */
+  animation: bgZoom 20s ease-in-out infinite alternate, gradientShift 15s ease-in-out infinite alternate;
+  transition: background 0.5s ease-in-out;
 }
+@keyframes bgZoom {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 105%;
+  }
+}
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./assets/glass-8320734_1280.jpg');
+  }
+  100% {
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./assets/glass-8320734_1280.jpg');
+  }
+}
+

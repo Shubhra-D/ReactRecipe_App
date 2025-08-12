@@ -57,8 +57,8 @@ const Navbar = () => {
         alignItems={"center"}
         display={{ base: "none", md: "flex" }}
       >
-        <Link to="/">🏡Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/about">About Us</Link>
+        <Link to='/signup'><Button border={'1px solid blue'} bg='whiteAlpha.600' fontWeight={'bold'} color={'blackAlpha.600'}>SignUp</Button></Link>
         {user ? (
           <>
             <Text as={"span"} marginRight={3}>
@@ -76,7 +76,7 @@ const Navbar = () => {
       </Flex>
       {/* Mobile view hamburger*/}
       
-      {/* Monile Drawer */}
+      {/* Mobile Drawer */}
       <DrawerRoot
         open={open}
         onOpenChange={(e) => setIsOpen(e.open)}
@@ -99,7 +99,6 @@ const Navbar = () => {
               </DrawerHeader>
               <DrawerBody>
                 <VStack spacing={4} mt={3} p={4}  align="start" fontWeight="bold" color="blue.400">
-                  <Link to="/" >👉 🏡Home</Link>
                   <Link to="/about">👉 About</Link>
                   {user ? (
                     <>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, Heading, Text, Image, VStack, Flex } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa6";
+import AboutP from '../assets/about.jpeg';
 
 const About = () => {
   return (
     <Box maxW="800px" mx="auto" p={6} textAlign="center">
       <Image 
-        src='ReactRecipe_App/about.jpeg'
+        src={AboutP}
         alt="Cooking Image" 
         borderRadius="2xl" 
         mb={4}

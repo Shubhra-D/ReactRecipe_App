@@ -25,7 +25,7 @@ const Footer = () => {
       bottom={0}
       left={0}
       width="100%"
-      bg="gray.50"
+      bg="transparent"
       borderTop="1px solid"
       borderColor="gray.200"
       initial={{ y: 100, opacity: 0 }}

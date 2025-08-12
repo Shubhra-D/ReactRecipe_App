@@ -7,6 +7,7 @@ import {
   GridItem,
   Heading,
   HStack,
+  Icon,
   Image,
   RatingGroup,
   Skeleton,
@@ -21,11 +22,13 @@ import { Link } from "react-router-dom";
 import { RecipeContext } from "../Context/RecipeProvider";
 import SearchBar from "./SearchBar";
 import EditRecipe from "./EditRecipe";
+import Slide from "./Slide";
+import { FaHeart } from "react-icons/fa6";
 const Home = () => {
   const { filteredRecipes, setFilteredRecipes } = useContext(RecipeContext);
   const [editingRecipe, setEditingRecipe] = useState(null);
   const [isOpen, setisOpen] = useState(false);
-  const [rating,setRating] = useState(1);
+  const [rating, setRating] = useState(1);
   const onOpen = () => setisOpen(true);
   const onClose = () => setisOpen(false);
   console.log(" Filter Dialog Opened", isOpen);
@@ -54,7 +57,14 @@ const Home = () => {
     { emoji: "🧂 ", name: "Cumin" },
     { emoji: "🥚", name: "Eggs" },
   ];
-
+const icons = [
+    "fa-solid fa-utensils",
+    "fa-solid fa-mug-saucer",
+    "fa-solid fa-pizza-slice",
+    "fa-solid fa-spoon",
+    "fa-solid fa-burger",
+     "fa-solid fa-wine-bottle"
+  ];
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedIngredient, setSelectedIngredient] = useState("");
 
@@ -240,6 +250,51 @@ const Home = () => {
           </Flex>
         </Box>
       )}
+      <Flex
+        direction="column"
+        align="center"
+        justify="center"
+        textAlign="center"
+      >
+        {" "}
+        <Flex gap={2} align="center" fontSize="2xl" fontWeight="bold">
+          <Text color={"white"} fontSize={'3xl'}>Welcome to the</Text>
+          <FaHeart color="green" />
+          <Text color={"white"} fontSize={'3xl'}>of Food</Text>
+        </Flex>
+        {/* Decorative line with star */}
+        <Flex align="center" mt={2} width="100%" maxW="400px">
+          <Box flex="1" height="2px" bg={'whiteAlpha.500'}/>
+          <Text mx={2} color={'whiteAlpha.500'}>*</Text>
+          <Box flex="1" height="2px" bg={'whiteAlpha.500'}/>
+        </Flex>
+      </Flex>
+      {/* Slide Show */}
+      <Slide />
+      {/* Little Icons Flex */}
+      <Flex gap={4} align="center" justify="center" mt={4}>
+      {icons.map((iconClass, index) => (
+        <Flex
+          key={index}
+          alignItems="center"
+          gap={8}
+          justify='center'
+          border="2px solid gray"
+          borderRadius="full"
+          p="10px"
+          color="whiteAlpha.500"
+          fontSize="20px"
+          marginTop={3}
+          _hover={{
+            bg: "whiteAlpha.200",
+            transform: "scale(1.1)",
+            transition: "0.2s"
+          }}
+        >
+          <i className={iconClass}></i>
+        </Flex>
+      ))}
+    </Flex>
       {/* Display Recipes */}
       <Grid
         templateColumns={{
@@ -284,16 +339,16 @@ const Home = () => {
               </Link>
               <Flex padding={3} justifyContent={"space-between"}>
                 <RatingGroup.Root
-                allowHalf
-                count={5}
-                value={rating}
-                onValueChange={(e) => setRating(e.value)}
-                colorPalette={"yellow"}
-              >
-                <RatingGroup.HiddenInput />
-                <RatingGroup.Control />
-              </RatingGroup.Root>
-              <Text>5k reviews</Text>
+                  allowHalf
+                  count={5}
+                  value={rating}
+                  onValueChange={(e) => setRating(e.value)}
+                  colorPalette={"yellow"}
+                >
+                  <RatingGroup.HiddenInput />
+                  <RatingGroup.Control />
+                </RatingGroup.Root>
+                <Text>5k reviews</Text>
               </Flex>
 
               {/* Editing button */}
