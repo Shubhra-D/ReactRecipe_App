@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import { PiChefHatDuotone} from "react-icons/pi";
+import { PiChefHatDuotone } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -41,12 +41,20 @@ const Navbar = () => {
       color={"blue.600"}
       alignItems={"center"}
       marginTop={1}
-      bg={"blue.50"}
+      top={0}
+      left={0}
+      right={0}
+      mb={2}
+      bg={"rgba(0, 0, 0, 0.3)"} // semi-transparent
+      backdropFilter="blur(10px)" // glassy blur effect
+      borderBottom="1px solid rgba(255, 255, 255, 0.1)" // subtle line
       p={4}
+      boxShadow={"sm"}
+      position={"sticky"}
     >
       <Flex alignItems={"center"}>
         <PiChefHatDuotone fontSize={"2xl"} />
-        <Text fontWeight={"bold"} fontSize={{base:"xl",md:"3xl"}} ml={2}>
+        <Text fontWeight={"bold"} fontSize={{ base: "xl", md: "3xl" }} ml={2}>
           Recipe Receptor
         </Text>
       </Flex>
@@ -58,7 +66,16 @@ const Navbar = () => {
         display={{ base: "none", md: "flex" }}
       >
         <Link to="/about">About Us</Link>
-        <Link to='/signup'><Button border={'1px solid blue'} bg='whiteAlpha.600' fontWeight={'bold'} color={'blackAlpha.600'}>SignUp</Button></Link>
+        <Link to="/signup">
+          <Button
+            border={"1px solid blue"}
+            bg="blackAlpha.600"
+            fontWeight={"bold"}
+            color={"whiteAlpha.700"}
+          >
+            SignUp
+          </Button>
+        </Link>
         {user ? (
           <>
             <Text as={"span"} marginRight={3}>
@@ -75,30 +92,43 @@ const Navbar = () => {
         )}
       </Flex>
       {/* Mobile view hamburger*/}
-      
+
       {/* Mobile Drawer */}
       <DrawerRoot
         open={open}
         onOpenChange={(e) => setIsOpen(e.open)}
         placement={"left"}
       >
-        <DrawerTrigger asChild  aria-label="Open Menu" marginLeft={6} display={{ base: "flex", md: "none" }}  fontSize={"larger"}>
-            <FiMenu/>
+        <DrawerTrigger
+          asChild
+          aria-label="Open Menu"
+          marginLeft={6}
+          display={{ base: "flex", md: "none" }}
+          fontSize={"larger"}
+        >
+          <FiMenu />
         </DrawerTrigger>
         <Portal>
           <DrawerBackdrop />
           <DrawerPositioner>
             <DrawerContent>
               <DrawerHeader>
-                <Flex justifyContent={'space-between'}>
-                <DrawerTitle color={"blue.400"}>Menu</DrawerTitle>
-                <DrawerCloseTrigger asChild pos={'initial'}>
-                    <CloseButton placement/>
-                </DrawerCloseTrigger>
+                <Flex justifyContent={"space-between"}>
+                  <DrawerTitle color={"blue.400"}>Menu</DrawerTitle>
+                  <DrawerCloseTrigger asChild pos={"initial"}>
+                    <CloseButton placement />
+                  </DrawerCloseTrigger>
                 </Flex>
               </DrawerHeader>
               <DrawerBody>
-                <VStack spacing={4} mt={3} p={4}  align="start" fontWeight="bold" color="blue.400">
+                <VStack
+                  spacing={4}
+                  mt={3}
+                  p={4}
+                  align="start"
+                  fontWeight="bold"
+                  color="blue.400"
+                >
                   <Link to="/about">👉 About</Link>
                   {user ? (
                     <>
