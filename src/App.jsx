@@ -11,6 +11,7 @@ import Login from './Pages/Common/Login'
 import Footer from './Pages/Common/Footer'
 import Feedback from './Pages/FeedBack'
 import Signup from './Pages/Common/Signup'
+import Mood from './Pages/Mood';
 
 
 
@@ -26,6 +27,7 @@ function App() {
        <Route path='/meal/:id' element={<Recipe/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/signup' element={<Signup/>}/>
+       <Route path='/mood' element={<Mood/>}/>
        <Route path='/feedback' element={<Feedback/>}/>
       </Routes>
       <Footer/> 

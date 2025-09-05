@@ -10,9 +10,13 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import bgPic from "../../assets/formbg.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
 
-export default function SignUpForm() {
+export default function Signup() {
+  const {signup} = useAuth();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -25,8 +29,18 @@ export default function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    // send to backend later
+    const result = signup({
+      name:formData.name,
+      email:formData.email,
+      phone:formData.phone,
+      password:formData.password
+    });
+    if(result.success){
+      alert("SignUp Successful !");
+      navigate("/mood");
+    }else{
+      alert(result.message);
+    }
   };
 
   return (

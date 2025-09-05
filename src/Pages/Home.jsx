@@ -149,7 +149,7 @@ const icons = [
       {isOpen && (
         <Box
           position={"fixed"}
-          top={"50%"}
+          top={"55%"}
           left={"50%"}
           transform={"translate(-50%,-50%)"}
           bg={"blue.50"}
@@ -258,9 +258,9 @@ const icons = [
       >
         {" "}
         <Flex gap={2} align="center" fontSize="2xl" fontWeight="bold">
-          <Text color={"white"} fontSize={'3xl'}>Welcome to the</Text>
+          <Text color={"white"} fontSize={'3xl'}>Welcome to the </Text>
           <FaHeart color="green" />
-          <Text color={"white"} fontSize={'3xl'}>of Food</Text>
+          <Text color={"white"} fontSize={'3xl'}> of Food</Text>
         </Flex>
         {/* Decorative line with star */}
         <Flex align="center" mt={2} width="100%" maxW="400px">

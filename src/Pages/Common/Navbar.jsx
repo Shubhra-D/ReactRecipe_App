@@ -55,8 +55,8 @@ const Navbar = () => {
       <Flex alignItems={"center"}>
         <PiChefHatDuotone fontSize={"2xl"} />
         <Text fontWeight={"bold"} fontSize={{ base: "xl", md: "3xl" }} ml={2}>
-          Recipe Receptor
-        </Text>
+          <Link to={'/'}> Recipe Receptor</Link>
+          </Text>
       </Flex>
 
       <Flex
@@ -66,7 +66,21 @@ const Navbar = () => {
         display={{ base: "none", md: "flex" }}
       >
         <Link to="/about">About Us</Link>
-        <Link to="/signup">
+        {user ? (
+          <>
+            <Text as={"span"} marginRight={3}>
+              🙍🏻‍♂️{user.name}!
+            </Text>
+            <Link to={'/mood'}>
+             🍽️Mood Bite
+            </Link>
+            <Button bg={"blue.400"} onClick={handleLogout}>
+              Logout
+            </Button>
+          </>
+        ) : (
+          <>
+          <Link to="/signup">
           <Button
             border={"1px solid blue"}
             bg="blackAlpha.600"
@@ -76,19 +90,10 @@ const Navbar = () => {
             SignUp
           </Button>
         </Link>
-        {user ? (
-          <>
-            <Text as={"span"} marginRight={3}>
-              👋{user.name}!
-            </Text>
-            <Button bg={"blue.400"} onClick={handleLogout}>
-              Logout
-            </Button>
-          </>
-        ) : (
           <Link to={"/login"}>
             <Button bg={"blue.400"}>👤Login</Button>
           </Link>
+          </>
         )}
       </Flex>
       {/* Mobile view hamburger*/}

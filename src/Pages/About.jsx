@@ -47,12 +47,11 @@ const About = () => {
           <Text>Made with love</Text>
           <FaHeart color="purple" />
           <Text>
-            and care by <strong>Frontend Developer Shubhra Dwivedi</strong> and{" "}
-            <strong>Backend Developer Bhavya</strong>
+            and care by <strong>Frontend Developer Shubhra Dwivedi</strong>
           </Text>
         </Flex>
         <Text fontSize="sm" color="gray.500">
-          Can Suggest &copy; March 2025
+          Learn not copy &copy; March 2025
         </Text>
       </Stack>
     </Box>
